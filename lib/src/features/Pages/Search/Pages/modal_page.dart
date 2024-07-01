@@ -29,9 +29,23 @@ class ModalPage extends StatelessWidget {
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(width: 10.w),
-                  Image.asset(
-                    'assets/icons/fltr.png',
-                    color: Colors.black,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0xFFEBEBEB),
+                      ),
+                      padding: EdgeInsets.all(0.w),
+                      child: Image.asset(
+                        'assets/icons/close.png',
+                        width: 12.w,
+                        height: 12.w,
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
                 ]),
                 FilterSection(
@@ -125,12 +139,12 @@ class FilterSection extends StatelessWidget {
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
-                          color: Colors.black,
+                          color: Color(0xFFC9CDD2),
                         ),
                         borderRadius: BorderRadius.circular(1.5.w),
                       ),
                       onSelected: (bool value) {
-                        // Ajoutez l'action de sélection ici
+                     
                       },
                     ))
                 .toList(),

@@ -20,12 +20,35 @@ class _Modal2PageState extends State<Modal2Page> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                'Options de tri',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-              ),
-            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text(
+                    "Option de tri",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(width: 10.w),
+                   GestureDetector(
+                  onTap: () {
+                     Navigator.pop(context);
+                  },
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xFFEBEBEB),
+                    ),
+                    padding: EdgeInsets.all(0.w),
+                    child: Image.asset(
+                      'assets/icons/close.png',
+                      width: 12.w,
+                      height: 12.w,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                ]),
             SizedBox(height: 3.h),
             _buildRadioOption('Pertinence'),
             SizedBox(height: 2.h),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_bolide/src/features/Pages/Assistance/pages/assistance_page.dart';
+import 'package:le_bolide/src/features/Pages/commande/pages/commande_page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Favoris/Pages/favoris.dart';
@@ -88,10 +89,10 @@ class _AssisBottomState extends State<AssisBottom> {
                     _selectedIndex = 1;
                   });
                   widget.onTap(1);
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => ReservationPage()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CommandePage()),
+                  );
                 },
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 1.w),
