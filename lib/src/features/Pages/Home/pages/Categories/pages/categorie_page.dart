@@ -63,7 +63,7 @@ class CategoriesPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const FavorisPage()),
+                      MaterialPageRoute(builder: (context) => const PneuPage()),
                     );
                   },
                   child: const CategoryItem(
