@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import 'src/features/Pages/Home/pages/home_page.dart';
-import 'src/features/Pages/Search/Pages/find_search_page.dart';
-import 'src/features/Pages/splash_screen/pages/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());

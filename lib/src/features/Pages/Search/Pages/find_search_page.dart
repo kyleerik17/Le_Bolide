@@ -4,8 +4,8 @@ import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article2.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/Categories/widgets/article.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/home_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/find_search_full_page.dart';
+import 'package:le_bolide/src/features/Pages/Search/Pages/modal2_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/modal_page.dart';
-import 'package:le_bolide/src/features/Pages/Search/Pages/modal2_page.dart'; // Importez votre Modal2Page
 import 'package:le_bolide/src/features/Pages/Search/widgets/search1.dart';
 import 'package:sizer/sizer.dart';
 
@@ -20,26 +20,30 @@ class _FindSearchPageState extends State<FindSearchPage> {
   String _selectedButton = 'Tout';
 
   void _onButtonPressed(String buttonName) {
+    if (!mounted) return;
+
     setState(() {
       _selectedButton = buttonName;
     });
 
-    if (buttonName == 'Filtres') {
-      showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        builder: (BuildContext context) {
-          return const ModalPage();
-        },
-      );
-    } else if (buttonName == 'Trier par') {
-      showModalBottomSheet(
-        context: context,
-        builder: (BuildContext context) {
-          return const Modal2Page();
-        },
-      );
-    }
+    Future.microtask(() {
+      if (buttonName == 'Filtres') {
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (BuildContext context) {
+            return const ModalPage();
+          },
+        );
+      } else if (buttonName == 'Trier par') {
+        showModalBottomSheet(
+          context: context,
+          builder: (BuildContext context) {
+            return const Modal2Page();
+          },
+        );
+      }
+    });
   }
 
   @override
@@ -55,11 +59,12 @@ class _FindSearchPageState extends State<FindSearchPage> {
               children: [
                 GestureDetector(
                   onTap: () {
-                     Navigator.push(
-                       context,
-                       MaterialPageRoute(
-                           builder: (context) => const HomePage()),
-                     );
+                    if (!mounted) return;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
                   },
                   child: Container(
                     decoration: const BoxDecoration(
@@ -166,12 +171,14 @@ class _FindSearchPageState extends State<FindSearchPage> {
               ],
             ),
             SizedBox(height: 2.w),
-            const Article2Page(),
-            const Article2Page(),
-            SizedBox(height: 3.0.h),
+            const ArticlePage(),
+            const ArticlePage(),
+            SizedBox(height: 2.0.h),
             Center(
               child: TextButton(
                 onPressed: () {
+                  if (!mounted) return;
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -190,8 +197,9 @@ class _FindSearchPageState extends State<FindSearchPage> {
                   "Charger plus",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14.sp,
-                    fontFamily: 'Inter',
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Cabin',
                   ),
                 ),
               ),

@@ -16,80 +16,51 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: const Color(0xFF1A1A1A),
+        elevation: 0,
+        title: Text(
+          'Profil',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 300),
+                  pageBuilder: (_, __, ___) => const HomePage(),
+                  transitionsBuilder: (_, animation, __, child) {
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1.0, 0.0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+                  },
+                ),
+              );
+            },
+            icon: Image.asset(
+              'assets/icons/dt.png',
+              width: 15.w,
+              height: 15.w,
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(right: 15.0)),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 8.h,
-              padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 5.w),
-              color: const Color(0xFF1A1A1A),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Gap(28.w),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProfilePage(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            "Profil",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 13.sp,
-                              fontFamily: "Poppins",
-                              letterSpacing: 0.9,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              PageRouteBuilder(
-                                transitionDuration:
-                                    const Duration(milliseconds: 300),
-                                pageBuilder: (_, __, ___) => const HomePage(),
-                                transitionsBuilder: (_, animation, __, child) {
-                                  return SlideTransition(
-                                    position: Tween<Offset>(
-                                      begin: const Offset(1.0, 0.0),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: child,
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                          child: Image.asset(
-                            'assets/icons/fw.png',
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Gap(6.h),
             Stack(
               alignment: Alignment.bottomCenter,
