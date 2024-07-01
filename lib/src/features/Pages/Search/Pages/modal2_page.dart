@@ -14,25 +14,31 @@ class _Modal2PageState extends State<Modal2Page> {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.7,
+      heightFactor: 0.8,
       child: Padding(
         padding: EdgeInsets.all(4.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
                     "Option de tri",
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.sp,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600),
+                      color: Colors.black,
+                      fontSize: 16.sp,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  SizedBox(width: 10.w),
-                   GestureDetector(
+                ),
+                GestureDetector(
                   onTap: () {
-                     Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: Container(
                     decoration: const BoxDecoration(
@@ -48,7 +54,8 @@ class _Modal2PageState extends State<Modal2Page> {
                     ),
                   ),
                 ),
-                ]),
+              ],
+            ),
             SizedBox(height: 3.h),
             _buildRadioOption('Pertinence'),
             SizedBox(height: 2.h),
@@ -60,21 +67,16 @@ class _Modal2PageState extends State<Modal2Page> {
             SizedBox(height: 2.h),
             _buildRadioOption('Meilleures notes'),
             Spacer(),
-            Center(
+             Center(
               child: TextButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => const FindSearchPlusPage()),
-                  // );
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF1A1A1A),
                   padding:
                       EdgeInsets.symmetric(vertical: 1.0.h, horizontal: 20.w),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(1.5.w),
+                    borderRadius: BorderRadius.circular(1.w),
                   ),
                 ),
                 child: Text(
@@ -82,7 +84,8 @@ class _Modal2PageState extends State<Modal2Page> {
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14.sp,
-                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Cabin',
                   ),
                 ),
               ),

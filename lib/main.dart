@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout1_page.dart';
-import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout2_page.dart';
-import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout_page.dart';
-import 'package:le_bolide/src/features/Pages/Home/pages/home_page.dart';
 
 import 'package:sizer/sizer.dart';
 
-
+import 'src/features/Pages/Home/pages/home_page.dart';
+import 'src/features/Pages/Search/Pages/find_search_page.dart';
 import 'src/features/Pages/splash_screen/pages/splash_screen_page.dart';
-
 
 void main() {
   runApp(const MyApp());

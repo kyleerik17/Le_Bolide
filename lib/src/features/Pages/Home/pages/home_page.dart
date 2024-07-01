@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:le_bolide/src/features/Pages/loading%20modal/pages/search_load_page.dart';
-
 import 'package:sizer/sizer.dart';
 
 import '../widgets/appbar.dart';
@@ -52,13 +51,24 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              Text(
-                                "Voir tout",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 11.sp,
-                                  fontFamily: "Cabin",
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CategoriesPage(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "Voir tout",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11.sp,
+                                    fontFamily: "Cabin",
+                                  ),
                                 ),
                               ),
                             ],
@@ -93,8 +103,9 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const CategoriesPage()),
+                                      builder: (context) =>
+                                          const CategoriesPage(),
+                                    ),
                                   );
                                 },
                                 child: Text(
@@ -134,12 +145,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) =>
-                                  //           const CategoriesPage()),
-                                  // );
+                                  // Ajouter ici un code similaire si vous avez une autre page à naviguer
                                 },
                                 child: Text(
                                   "Voir tout",
@@ -150,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                                     fontFamily: "Cabin",
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),

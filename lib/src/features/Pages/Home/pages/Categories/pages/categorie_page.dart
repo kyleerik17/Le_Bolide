@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:le_bolide/src/features/Pages/Favoris/Pages/favoris.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/Categories/pages/pages.dart';
 import 'package:sizer/sizer.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        return MaterialApp(
+        return const MaterialApp(
           home: CategoriesPage(),
         );
       },
@@ -62,7 +63,7 @@ class CategoriesPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PneuPage()),
+                      MaterialPageRoute(builder: (context) => const FavorisPage()),
                     );
                   },
                   child: const CategoryItem(

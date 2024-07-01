@@ -185,7 +185,7 @@ class _PayPageState extends State<PayPage> {
                       ]),
                       SizedBox(height: 5.h),
                       SizedBox(
-                        width: 35.w,
+                        width: 25.w,
                         height: 4.2.h,
                         child: _showQuantityControls
                             ? const SizedBox(
@@ -212,18 +212,22 @@ class _PayPageState extends State<PayPage> {
                                 // ),
                                 )
                             : Container(
-                                padding: EdgeInsets.symmetric(vertical: 0.5.h),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 0.5.h, horizontal: 1.w),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   border: Border.all(color: Colors.black),
                                   borderRadius: BorderRadius.circular(1.5.w),
                                 ),
                                 child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     IconButton(
                                       onPressed: _decrementQuantity,
                                       icon: const Icon(Icons.remove),
                                       padding: EdgeInsets.zero,
+                                      constraints: BoxConstraints(),
                                     ),
                                     const VerticalDivider(
                                       color: Colors.grey,
@@ -241,6 +245,7 @@ class _PayPageState extends State<PayPage> {
                                       onPressed: _incrementQuantity,
                                       icon: const Icon(Icons.add),
                                       padding: EdgeInsets.zero,
+                                      constraints: BoxConstraints(),
                                     ),
                                   ],
                                 ),
