@@ -171,9 +171,9 @@ class _FindSearchPageState extends State<FindSearchPage> {
               ],
             ),
             SizedBox(height: 2.w),
-            const ArticlePage(),
-            const ArticlePage(),
-            SizedBox(height: 2.0.h),
+            const Article2Page(),
+            const Article2Page(),
+            SizedBox(height: 9.w),
             Center(
               child: TextButton(
                 onPressed: () {
@@ -188,9 +188,9 @@ class _FindSearchPageState extends State<FindSearchPage> {
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF1A1A1A),
                   padding:
-                      EdgeInsets.symmetric(vertical: 1.0.h, horizontal: 10.0.w),
+                      EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 35.w),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(1.w),
                   ),
                 ),
                 child: Text(

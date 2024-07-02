@@ -4,8 +4,8 @@ import 'package:sizer/sizer.dart';
 
 import '../../widgets/bouton_ajouter.dart';
 
-class Article2Page extends StatelessWidget {
-  const Article2Page({Key? key}) : super(key: key);
+class Article3Page extends StatelessWidget {
+  const Article3Page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,13 @@ class Article2Page extends StatelessWidget {
           description: 'Pneu été',
           price: '38 000 F',
         ),
+        SizedBox(height: 4.w),
         _buildArticle(
-          imageUrl: 'assets/images/fr.jpeg',
-          title: 'RIDEX 3405B1557 Disques et plaquettes de freins',
-          iconUrl: 'assets/icons/ea.png',
-          description: 'Essieu arrière',
-          price: '69 000 F',
+          imageUrl: 'assets/images/pn2.png',
+          title: 'Radar Rivera PRO 2 165/65\nR13 77T',
+          iconUrl: 'assets/icons/sun.png',
+          description: 'Pneu été',
+          price: '38 000 F',
         ),
       ],
     );

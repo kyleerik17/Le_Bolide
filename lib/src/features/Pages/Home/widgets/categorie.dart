@@ -25,7 +25,7 @@ class Categorie extends StatelessWidget {
           SizedBox(width: 2.w),
           _buildCategorie(
             icon: 'assets/icons/moto.png',
-            label: 'Motoe',
+            label: 'Moto',
             onTap: () {
               // Redirection vers The Bulls
               // Navigator.push(

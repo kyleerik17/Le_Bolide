@@ -46,7 +46,7 @@ class SearchClickPage extends StatelessWidget {
               onTap: () {
                 _showLoadingDialog(
                     context); // Affiche le dialogue de chargement
-                Future.delayed(Duration(seconds: 2), () {
+                Future.delayed(const Duration(seconds: 2), () {
                   Navigator.pop(context); // Ferme le dialogue après 2 secondes
                   Navigator.push(
                     context,
@@ -214,24 +214,19 @@ class SearchClickPage extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return AlertDialog(
-          content: Container(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-                  ),
-                ],
-              ),
+        return const Dialog(
+          backgroundColor: Colors.transparent, 
+          elevation: 0, 
+          child: Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
             ),
           ),
         );
       },
     );
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pop(context);
       Navigator.push(
         context,

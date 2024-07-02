@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:sizer/sizer.dart';
-
-import '../../../Pay/Widgets/add.dart';
-import '../../../widgets/bouton_ajouter.dart';
 
 class ArticlePage extends StatelessWidget {
   const ArticlePage({Key? key}) : super(key: key);
@@ -12,7 +7,7 @@ class ArticlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 4.w),
+        SizedBox(height: 4),
         _buildArticle(
           imageUrl: 'assets/images/pn2.png',
           title: 'Radar Rivera PRO 2 165/65 R13 77T',
@@ -40,78 +35,65 @@ class ArticlePage extends StatelessWidget {
   }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 92.w,
-          height: 30.w,
+          width: 300,
+          height: 150,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(0.5.h),
+            borderRadius: BorderRadius.circular(10),
           ),
-          padding: EdgeInsets.symmetric(vertical: 0.w, horizontal: 4.w),
+          padding: EdgeInsets.all(10),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 20.w,
-                height: 25.w,
+                width: 100,
+                height: 100,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(imageUrl),
                     fit: BoxFit.contain,
                   ),
-                  borderRadius: BorderRadius.circular(0.5.h),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              SizedBox(width: 2.w),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 13.sp,
-                        fontFamily: "Cabin",
-                        fontWeight: FontWeight.w500,
+              SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Image.asset(
+                        iconUrl,
+                        width: 20,
+                        height: 20,
                       ),
-                    ),
-                    SizedBox(height: 1.w),
-                    Row(
-                      children: [
-                        Image.asset(
-                          iconUrl,
-                          width: 6.w,
-                          height: 6.w,
+                      SizedBox(width: 10),
+                      Text(
+                        description,
+                        style: TextStyle(
+                          fontSize: 16,
                         ),
-                        SizedBox(width: 1.w),
-                        Text(
-                          description,
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontFamily: "Cabin",
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    price,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          price,
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            fontFamily: "Cabin",
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(width: 7.w),
-                        const ArticlePage()
-                      ],
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),

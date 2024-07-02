@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article3.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/Categories/widgets/article.dart';
+import 'package:le_bolide/src/features/Pages/Search/Pages/find_search_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/modal2_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/modal_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/widgets/search1.dart';
@@ -55,11 +57,11 @@ class _FindSearchPlusState extends State<FindSearchPlusPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => const VoirReplaysPage()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FindSearchPage()),
+                      );
                     },
                     child: Container(
                       decoration: const BoxDecoration(
@@ -167,11 +169,33 @@ class _FindSearchPlusState extends State<FindSearchPlusPage> {
                 ],
               ),
               SizedBox(height: 2.w),
-              const ArticlePage(),
-              const ArticlePage(),
-              const ArticlePage(),
-              const ArticlePage(),
-              SizedBox(height: 3.0.h),
+              const Article3Page(),
+              const Article3Page(),
+              const Article3Page(),
+              const Article3Page(),
+              SizedBox(height: 9.w),
+              Center(
+                child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: const Color(0xFF1A1A1A),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 35.w),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(1.w),
+                    ),
+                  ),
+                  child: Text(
+                    "Charger plus",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Cabin',
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

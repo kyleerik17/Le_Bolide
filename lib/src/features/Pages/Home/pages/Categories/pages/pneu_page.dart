@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article2.dart';
+import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article3.dart';
+import 'package:le_bolide/src/features/Pages/Home/pages/Categories/pages/categorie_page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../widgets/search.dart';
@@ -9,7 +12,6 @@ class PneuPage extends StatefulWidget {
   const PneuPage({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _PneuPageState createState() => _PneuPageState();
 }
 
@@ -28,11 +30,18 @@ class _PneuPageState extends State<PneuPage> {
       builder: (context, orientation, deviceType) {
         return Scaffold(
           appBar: AppBar(
-            leading: Image.asset(
-              'assets/icons/gc.png',
-              width: 15.w,
-              height: 15.w,
-              color: Colors.black,
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(
+                  context,
+                );
+              },
+              child: Image.asset(
+                'assets/icons/gc.png',
+                width: 40,
+                height: 40,
+                color: Colors.black,
+              ),
             ),
             backgroundColor: Colors.white,
             elevation: 0,
@@ -50,11 +59,11 @@ class _PneuPageState extends State<PneuPage> {
             color: const Color(0xFFF7F8F9),
             padding: EdgeInsets.all(4.w),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SearchBarWidget(),
                 SizedBox(height: 2.h),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     TextButton(
                       style: TextButton.styleFrom(
@@ -65,7 +74,9 @@ class _PneuPageState extends State<PneuPage> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0.5.h),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 4.w,
+                        ),
                         minimumSize: Size(0, 3.8.h),
                       ),
                       onPressed: () => _onButtonPressed('Tout'),
@@ -81,9 +92,7 @@ class _PneuPageState extends State<PneuPage> {
                     Gap(2.w),
                     TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor: _selectedButton == 'Filtres'
-                            ? Colors.black
-                            : Colors.white,
+                        backgroundColor: Colors.white,
                         side: const BorderSide(color: Colors.grey),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0.5.h),
@@ -92,51 +101,57 @@ class _PneuPageState extends State<PneuPage> {
                         minimumSize: Size(0, 3.8.h),
                       ),
                       onPressed: () => _onButtonPressed('Filtres'),
-                      child: Text(
-                        'Filtres',
-                        style: TextStyle(
-                          color: _selectedButton == 'Filtres'
-                              ? Colors.white
-                              : Colors.black,
-                        ),
+                      child: Row(
+                        children: [
+                          const Text(
+                            'Filtres',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                          SizedBox(width: 1.w),
+                          Image.asset(
+                            'assets/icons/fltr.png',
+                            color: Colors.black,
+                          ),
+                        ],
                       ),
                     ),
                     Gap(2.w),
                     TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor: _selectedButton == 'Trier par'
-                            ? Colors.black
-                            : Colors.white,
+                        backgroundColor: Colors.white,
                         side: const BorderSide(color: Colors.grey),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0.5.h),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 4.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 4.w,
+                        ),
                         minimumSize: Size(0, 3.8.h),
                       ),
                       onPressed: () => _onButtonPressed('Trier par'),
-                      child: Text(
-                        'Trier par',
-                        style: TextStyle(
-                          color: _selectedButton == 'Trier par'
-                              ? Colors.white
-                              : Colors.black,
-                        ),
+                      child: Row(
+                        children: [
+                          const Text(
+                            'Trier par',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                          SizedBox(width: 1.w),
+                          Image.asset(
+                            'assets/icons/fltr.png',
+                            color: Colors.black,
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
                 SizedBox(height: 2.h),
-                const ArticlePage(), 
+                const Article3Page(),
                 SizedBox(height: 2.h),
-                Expanded(
-                  child: GridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 4.w,
-                    mainAxisSpacing: 4.w,
-                    children: const [],
-                  ),
-                ),
               ],
             ),
           ),
