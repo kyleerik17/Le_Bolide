@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:le_bolide/src/features/Pages/loading%20modal/pages/search_load_page.dart';
 import 'package:sizer/sizer.dart';
 import 'package:le_bolide/src/features/Pages/Home/widgets/appbar.dart';
@@ -10,12 +11,17 @@ class AssistancePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+    ));
     return Scaffold(
       backgroundColor: const Color(0xFFF7F8F9),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 1.h),
+          SizedBox(height: 2.h),
           const AppBarWidget(),
           SizedBox(height: 2.h),
           Center(
@@ -163,7 +169,7 @@ class AssistancePage extends StatelessWidget {
       bottomNavigationBar: AssisBottom(
         onTap: (int) {},
       ),
-       floatingActionButton: SizedBox(
+      floatingActionButton: SizedBox(
         width: 20.w,
         height: 20.w,
         child: FloatingActionButton(
@@ -176,7 +182,7 @@ class AssistancePage extends StatelessWidget {
                 transitionsBuilder: (_, animation, __, child) {
                   return SlideTransition(
                     position: Tween<Offset>(
-                      begin: const Offset(0.0, 1.0), 
+                      begin: const Offset(0.0, 1.0),
                       end: Offset.zero,
                     ).animate(animation),
                     child: child,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:sizer/sizer.dart';
@@ -13,6 +14,16 @@ class ProfilePage extends ConsumerStatefulWidget {
 }
 
 class _ProfilePageState extends ConsumerState<ProfilePage> {
+  @override
+  void initState() {
+    super.initState();
+    // Configure la barre d'état pour Android
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF1A1A1A), 
+      statusBarIconBrightness: Brightness.light, 
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +85,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                         width: 15.w,
                         height: 15.w,
                         decoration: const BoxDecoration(
-                          color: Colors.black,
+                          color: Color(0xFF1A1A1A),
                           shape: BoxShape.circle,
                         ),
                         child: Center(
@@ -284,7 +295,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                   fontSize: 13.sp,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: 'Cabin',
-                                  color: Colors.black,
+                                  color: const Color(0xFF1A1A1A),
                                 ),
                               ),
                             ],

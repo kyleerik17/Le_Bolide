@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout_page.dart';
 import 'package:sizer/sizer.dart';
+import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout_page.dart';
 
 import '../Menu/pages/menu.dart';
 
@@ -33,12 +33,15 @@ class _AppBarWidgetState extends State<AppBarWidget>
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 24.w,
       color: const Color(0xFFFFFFFF),
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 0.8.h),
+        padding: EdgeInsets.symmetric(
+            vertical: 2.h), // Utilisation de sizer pour le padding vertical
         child: Row(
+          mainAxisAlignment: MainAxisAlignment
+              .spaceBetween, // Aligner les éléments aux extrémités
           children: [
-            SizedBox(width: 4.w),
             GestureDetector(
               onTap: () {
                 showGeneralDialog(
@@ -72,27 +75,22 @@ class _AppBarWidgetState extends State<AppBarWidget>
                   },
                 );
               },
-              child: Image.asset(
-                'assets/icons/menu.png',
-                color: Colors.black,
+              child: Padding(
+                padding: EdgeInsets.only(left: 4.0.w), // Espacement à gauche
+                child: Image.asset(
+                  'assets/icons/menu.png',
+                  color: Colors.black,
+                ),
               ),
             ),
-            SizedBox(width: 20.w),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 25.w),
-                  Image.asset(
-                    'assets/icons/lgo.png',
-                    width: 45.w,
-                    height: 13.w,
-                    fit: BoxFit.contain,
-                  ),
-                ],
+            Expanded(
+              child: Center(
+                child: Image.asset(
+                  'assets/icons/ll.png',
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
-            SizedBox(width: 15.w),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -100,10 +98,15 @@ class _AppBarWidgetState extends State<AppBarWidget>
                   MaterialPageRoute(builder: (context) => const PayPage()),
                 );
               },
-              child: Image.asset(
-                'assets/icons/carte.png',
-                width: 10.w,
-                height: 8.w,
+              child: Padding(
+                padding: EdgeInsets.only(right: 4.0.w), // Espacement à droite
+                child: Image.asset(
+                  'assets/icons/carte.png',
+                  width:
+                      10.w, // Utilisation de sizer pour la largeur de l'image
+                  height:
+                      6.0.h, // Utilisation de sizer pour la hauteur de l'image
+                ),
               ),
             ),
           ],

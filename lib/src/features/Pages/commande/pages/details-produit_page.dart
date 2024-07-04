@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout_page.dart';
-import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/add.dart';
+import 'package:le_bolide/src/features/Pages/commande/widgets/slider1.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Home/widgets/bouton_ajouter.dart';
-import '../reservation_terrain/widgets/slider1.dart';
+
 
 class DetailsProduitsPage extends StatelessWidget {
   const DetailsProduitsPage({Key? key}) : super(key: key);

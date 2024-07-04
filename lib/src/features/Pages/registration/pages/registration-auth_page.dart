@@ -12,7 +12,8 @@ class RegistrationAuthPage extends StatelessWidget {
     final focusNode2 = FocusNode();
     final focusNode3 = FocusNode();
     final focusNode4 = FocusNode();
-    Future.delayed(const Duration(seconds: 6), () {
+
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(
         context,
         PageRouteBuilder(
@@ -30,18 +31,16 @@ class RegistrationAuthPage extends StatelessWidget {
         ),
       );
     });
+
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 6.h),
-          Row(
-            children: [
-              SizedBox(width: 4.w),
-              Positioned(
-                top: 0,
-                left: 0,
-                bottom: 0,
-                child: InkWell(
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(height: 6.h),
+            Row(
+              children: [
+                SizedBox(width: 4.w),
+                InkWell(
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
@@ -69,110 +68,97 @@ class RegistrationAuthPage extends StatelessWidget {
                     child: Icon(Icons.arrow_back_ios_new, size: 3.w),
                   ),
                 ),
+                SizedBox(width: 35.w),
+                Image.asset(
+                  'assets/icons/lgo.png',
+                  height: 4.h,
+                  fit: BoxFit.contain,
+                ),
+                Spacer(flex: 3),
+              ],
+            ),
+            SizedBox(height: 4.h),
+            Text(
+              "Authentification",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.sp,
+                fontFamily: "Poppins",
+                letterSpacing: 0.05,
               ),
-              SizedBox(width: 35.w),
-              Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/icons/lgo.png',
-                            height: 4.h,
-                            fit: BoxFit.contain,
-                          ),
-                        ],
-                      ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 1.h),
+            Text.rich(
+              TextSpan(
+                text: "Un SMS sera envoyé au ",
+                style: TextStyle(
+                  fontSize: 11.sp,
+                  fontFamily: "Cabin",
+                ),
+                children: const <TextSpan>[
+                  TextSpan(
+                    text: "+221 78 444 56 78",
+                    style: TextStyle(
+                      color: Color(0xFF1A1A1A),
+                      fontWeight: FontWeight.bold,
                     ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            "Authentification ",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18.sp,
-              fontFamily: "Poppins",
-              letterSpacing: 0.05,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 1.h),
-          Text.rich(
-            TextSpan(
-              text: "Un SMS sera envoyé au ",
-              style: TextStyle(
-                fontSize: 11.sp,
-                fontFamily: "Cabin",
-              ),
-              children: const <TextSpan>[
-                TextSpan(
-                  text: "+221 78 444 56 78",
-                  style: TextStyle(
-                    color: Color(0xFF1A1A1A),
-                    fontWeight: FontWeight.bold,
                   ),
-                ),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 2.h),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                NumberTextField(
-                    focusNode: focusNode1, nextFocusNode: focusNode2),
-                SizedBox(width: 2.h),
-                NumberTextField(
-                    focusNode: focusNode2, nextFocusNode: focusNode3),
-                SizedBox(width: 2.h),
-                NumberTextField(
-                    focusNode: focusNode3, nextFocusNode: focusNode4),
-                SizedBox(width: 2.h),
-                NumberTextField(focusNode: focusNode4),
-              ],
-            ),
-          ),
-          SizedBox(height: 2.h),
-          Text.rich(
-            TextSpan(
-              text: "Vous n'avez pas reçu de code ? ",
-              style: TextStyle(
-                fontSize: 11.sp,
-                fontFamily: "Cabin",
+                ],
               ),
-              children: <TextSpan>[
-                TextSpan(
-                  text: "Renvoyer \n",
-                  style: TextStyle(
-                    color: const Color(0xFF1A1A1A),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 11.sp,
-                  ),
-                ),
-                TextSpan(
-                  text: "Recevoir un appel",
-                  style: TextStyle(
-                    color: const Color(0xFF1A1A1A),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 11.sp,
-                  ),
-                ),
-              ],
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 3.h),
-          ImageRotation(),
-        ],
+            SizedBox(height: 2.h),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  NumberTextField(
+                      focusNode: focusNode1, nextFocusNode: focusNode2),
+                  SizedBox(width: 2.h),
+                  NumberTextField(
+                      focusNode: focusNode2, nextFocusNode: focusNode3),
+                  SizedBox(width: 2.h),
+                  NumberTextField(
+                      focusNode: focusNode3, nextFocusNode: focusNode4),
+                  SizedBox(width: 2.h),
+                  NumberTextField(focusNode: focusNode4),
+                ],
+              ),
+            ),
+            SizedBox(height: 2.h),
+            Text.rich(
+              TextSpan(
+                text: "Vous n'avez pas reçu de code ? ",
+                style: TextStyle(
+                  fontSize: 11.sp,
+                  fontFamily: "Cabin",
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: "Renvoyer \n",
+                    style: TextStyle(
+                      color: const Color(0xFF1A1A1A),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11.sp,
+                    ),
+                  ),
+                  TextSpan(
+                    text: "Recevoir un appel",
+                    style: TextStyle(
+                      color: const Color(0xFF1A1A1A),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11.sp,
+                    ),
+                  ),
+                ],
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 3.h),
+            ImageRotation(),
+          ],
+        ),
       ),
     );
   }

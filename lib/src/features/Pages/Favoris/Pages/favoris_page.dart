@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:le_bolide/src/features/Pages/loading%20modal/pages/search_load_page.dart';
 import 'package:sizer/sizer.dart';
@@ -25,12 +26,18 @@ class _FavorisPageState extends State<FavorisPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+    ));
     return Scaffold(
       backgroundColor: const Color(0xFFF7F8F9),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 2.h),
             const AppBarWidget(),
             Padding(
               padding: EdgeInsets.all(4.w),
@@ -209,7 +216,7 @@ class _FavorisPageState extends State<FavorisPage> {
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                  const    QuantityWidget(),
+                                      const QuantityWidget(),
                                     ],
                                   ),
                                 ],

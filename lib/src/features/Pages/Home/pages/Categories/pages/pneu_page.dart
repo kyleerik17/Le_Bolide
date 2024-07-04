@@ -61,7 +61,6 @@ class _PneuPageState extends State<PneuPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SearchBarWidget(),
                 SizedBox(height: 2.h),
                 Row(
                   children: [

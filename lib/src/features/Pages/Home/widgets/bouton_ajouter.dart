@@ -41,7 +41,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 25.w,
+        width: 27.w,
         height: 4.2.h,
         child: !_showQuantityControls
             ? SizedBox(
@@ -66,7 +66,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                 ),
               )
             : Container(
-                padding: EdgeInsets.symmetric(vertical: 0.5.h, horizontal: 1.w),
+                padding: EdgeInsets.symmetric(vertical: 0.5.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(color: Colors.black),
@@ -75,29 +75,46 @@ class _QuantityWidgetState extends State<QuantityWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(
+                      width: 1.w,
+                    ),
                     IconButton(
                       onPressed: _decrementQuantity,
                       icon: const Icon(Icons.remove),
                       padding: EdgeInsets.zero,
                       constraints: BoxConstraints(),
                     ),
-                    const VerticalDivider(
+                    VerticalDivider(
                       color: Colors.grey,
                       thickness: 1,
+                      width: 2.w,
+                    ),
+                    SizedBox(
+                      width: 2.w,
                     ),
                     Text(
                       '$_quantity',
                       style: TextStyle(fontSize: 14.sp),
                     ),
-                    const VerticalDivider(
+                    SizedBox(
+                      width: 2.w,
+                    ),
+                    VerticalDivider(
                       color: Colors.grey,
                       thickness: 1,
+                      width: 1.w,
+                    ),
+                    SizedBox(
+                      width: 1.w,
                     ),
                     IconButton(
                       onPressed: _incrementQuantity,
                       icon: const Icon(Icons.add),
                       padding: EdgeInsets.zero,
                       constraints: BoxConstraints(),
+                    ),
+                    SizedBox(
+                      width: 1.w,
                     ),
                   ],
                 ),

@@ -14,7 +14,7 @@ class SearchResultPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 1.h),
+              SizedBox(height: 3.h),
               Row(
                 children: [
                   GestureDetector(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article2.dart';
-import 'package:le_bolide/src/features/Pages/Home/pages/Categories/widgets/article.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/home_page.dart';
+import 'package:le_bolide/src/features/Pages/Home/widgets/bar_search1.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/find_search_full_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/modal2_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/Pages/modal_page.dart';
@@ -83,7 +83,7 @@ class _FindSearchPageState extends State<FindSearchPage> {
               ],
             ),
             SizedBox(height: 5.w),
-            const Search1BarWidget(),
+            const SearchBar1Widget(),
             SizedBox(height: 2.w),
             Row(
               children: [

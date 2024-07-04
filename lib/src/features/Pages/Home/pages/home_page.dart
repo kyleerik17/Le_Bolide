@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Importez ceci pour accéder à SystemChrome
 import 'package:le_bolide/src/features/Pages/loading%20modal/pages/search_load_page.dart';
 import 'package:sizer/sizer.dart';
 
@@ -20,10 +21,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+    ));
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 3.h),
           const AppBarWidget(),
           Expanded(
             child: Container(
@@ -144,9 +152,7 @@ class _HomePageState extends State<HomePage> {
                                 textAlign: TextAlign.center,
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  // Ajouter ici un code similaire si vous avez une autre page à naviguer
-                                },
+                                onTap: () {},
                                 child: Text(
                                   "Voir tout",
                                   style: TextStyle(
@@ -164,7 +170,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 1.h),
                     const MarquePopu(),
-                    SizedBox(height: 5.h),
                   ],
                 ),
               ),

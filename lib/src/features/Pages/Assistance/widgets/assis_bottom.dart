@@ -55,7 +55,7 @@ class _AssisBottomState extends State<AssisBottom> {
                     _selectedIndex = 0;
                   });
                   widget.onTap(0);
-                  Navigator.push(
+                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),
                   );
@@ -89,7 +89,7 @@ class _AssisBottomState extends State<AssisBottom> {
                     _selectedIndex = 1;
                   });
                   widget.onTap(1);
-                  Navigator.push(
+  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => CommandePage()),
                   );
@@ -98,15 +98,14 @@ class _AssisBottomState extends State<AssisBottom> {
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
                     children: [
-                      Image.asset('assets/icons/rec.png',
-                          height: 8.w, width: 8.w, color: Colors.black),
-                      const Text(
-                        'Commandes',
-                        style: TextStyle(
+                      Image.asset('assets/icons/reciept.png',
+                          height: 8.w, width: 8.w, color: Color(0xFF737373)),
+                      const Text('Commandes',
+                          style: TextStyle(
                             fontFamily: "Cabin",
                             fontWeight: FontWeight.w600,
-                            color: Colors.black),
-                      ),
+                            color: Color(0xFF737373),
+                          )),
                     ],
                   ),
                 ),
@@ -122,23 +121,23 @@ class _AssisBottomState extends State<AssisBottom> {
             ),
             BottomNavigationBarItem(
               icon: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 3;
-                  });
-                  widget.onTap(3);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AssistancePage()),
-                  );
-                },
+                // onTap: () {
+                //   setState(() {
+                //     _selectedIndex = 3;
+                //   });
+                //   widget.onTap(3);
+                //    Navigator.pushReplacement(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => const AssistancePage()),
+                //   );
+                // },
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
                     children: [
                       Image.asset(
-                        'assets/icons/ring.png',
+                        'assets/icons/ringe.png',
                         height: 8.w,
                         width: 8.w,
                       ),
@@ -147,7 +146,7 @@ class _AssisBottomState extends State<AssisBottom> {
                         style: TextStyle(
                           fontFamily: "Cabin",
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF737373),
+                          color: Color(0xFF1A1A1A),
                         ),
                       ),
                     ],
@@ -163,7 +162,7 @@ class _AssisBottomState extends State<AssisBottom> {
                     _selectedIndex = 4;
                   });
                   widget.onTap(4);
-                  Navigator.push(
+                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const FavorisPage()),

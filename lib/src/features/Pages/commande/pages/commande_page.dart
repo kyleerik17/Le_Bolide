@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:le_bolide/src/features/Pages/loading%20modal/pages/search_load_page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Home/widgets/appbar.dart';
-import '../reservation_terrain/pages/pages.dart';
+
 import '../widgets/bottom.dart';
 import '../widgets/commande_container.dart';
 
@@ -26,12 +27,18 @@ class _CommandePageState extends State<CommandePage> {
 
   @override
   Widget build(BuildContext context) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark,
+    ));
     return Scaffold(
       backgroundColor: const Color(0xFFF7F8F9),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(height: 2.h),
             const AppBarWidget(),
             Padding(
               padding: EdgeInsets.all(4.w),
@@ -261,7 +268,7 @@ class _CommandePageState extends State<CommandePage> {
                 transitionsBuilder: (_, animation, __, child) {
                   return SlideTransition(
                     position: Tween<Offset>(
-                      begin: const Offset(0.0, 1.0), 
+                      begin: const Offset(0.0, 1.0),
                       end: Offset.zero,
                     ).animate(animation),
                     child: child,

@@ -54,7 +54,7 @@ class _FavorisBottomNavBarState extends State<FavorisBottomNavBar> {
                     _selectedIndex = 0;
                   });
                   widget.onTap(0);
-                  Navigator.push(
+                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),
                   );
@@ -90,7 +90,7 @@ class _FavorisBottomNavBarState extends State<FavorisBottomNavBar> {
                     _selectedIndex = 1;
                   });
                   widget.onTap(1);
-                  Navigator.push(
+                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const CommandePage()),
@@ -100,9 +100,9 @@ class _FavorisBottomNavBarState extends State<FavorisBottomNavBar> {
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
                     children: [
-                      Image.asset('assets/icons/rec.png',
+                      Image.asset('assets/icons/reciept.png',
                           height: 8.w, width: 8.w, color: Color(0xFF737373)),
-                      const Text('Réservation',
+                      const Text('Commandes',
                           style: TextStyle(
                             fontFamily: "Cabin",
                             fontWeight: FontWeight.w600,
@@ -128,9 +128,10 @@ class _FavorisBottomNavBarState extends State<FavorisBottomNavBar> {
                     _selectedIndex = 3;
                   });
                   widget.onTap(3);
-                  Navigator.push(
+                 Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const AssistancePage()),
+                    MaterialPageRoute(
+                        builder: (context) => const AssistancePage()),
                   );
                 },
                 child: Padding(
@@ -173,7 +174,7 @@ class _FavorisBottomNavBarState extends State<FavorisBottomNavBar> {
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
                     children: [
-                      Image.asset('assets/icons/cr.png',
+                      Image.asset('assets/icons/hrt2.png',
                           height: 8.w, width: 8.w, color: Colors.black),
                       const Text(
                         'Favoris',

@@ -36,6 +36,7 @@ class _SearchLoadPageState extends State<SearchLoadPage> {
             SizedBox(height: 3.h),
             Row(
               children: [
+                SizedBox(height: 3.h),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -82,10 +83,9 @@ class _SearchLoadPageState extends State<SearchLoadPage> {
             SizedBox(height: 1.h),
             GestureDetector(
               onTap: () {
-                _showLoadingDialog(
-                    context); // Affiche le dialogue de chargement
+                _showLoadingDialog(context);
                 Future.delayed(const Duration(seconds: 2), () {
-                  Navigator.pop(context); // Ferme le dialogue après 2 secondes
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -318,11 +318,16 @@ class _SearchLoadPageState extends State<SearchLoadPage> {
                 child: Center(
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SearchResult2Page()),
-                      );
+                      _showLoadingDialog(context);
+                      Future.delayed(const Duration(seconds: 2), () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchResult2Page(),
+                          ),
+                        );
+                      });
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: const Color(0xFF1A1A1A),
@@ -432,15 +437,20 @@ class _SearchLoadPageState extends State<SearchLoadPage> {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return const AlertDialog(
-          content: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
-                ),
-              ],
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          insetPadding: EdgeInsets.all(0),
+          child: Container(
+            alignment: Alignment.center,
+            color: Colors.transparent,
+            child: SizedBox(
+              width: 20.w,
+              height: 20.w,
+              child: const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                strokeWidth: 6,
+              ),
             ),
           ),
         );

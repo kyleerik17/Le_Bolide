@@ -44,16 +44,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: [
             BottomNavigationBarItem(
               icon: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedIndex = 0;
-                  });
-                  widget.onTap(0);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                },
+                // onTap: () {
+                //   setState(() {
+                //     _selectedIndex = 0;
+                //   });
+                //   widget.onTap(0);
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => const HomePage()),
+                //   );
+                // },
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
@@ -85,7 +85,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     _selectedIndex = 1;
                   });
                   widget.onTap(1);
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const CommandePage()),
@@ -127,7 +127,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     _selectedIndex = 3;
                   });
                   widget.onTap(3);
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const AssistancePage()),
@@ -163,7 +163,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     _selectedIndex = 4;
                   });
                   widget.onTap(4);
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const FavorisPage()),

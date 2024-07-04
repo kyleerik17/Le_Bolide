@@ -170,7 +170,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                   children: [
                                     TextButton(
                                       onPressed: () {
-                                        Navigator.pushReplacement(
+                                        Navigator.push(
                                           context,
                                           PageRouteBuilder(
                                             transitionDuration: const Duration(

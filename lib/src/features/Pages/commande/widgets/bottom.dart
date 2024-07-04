@@ -92,7 +92,7 @@ class _ReservBottomNavBarState extends State<ReservBottomNavBar> {
                   padding: EdgeInsets.only(bottom: 1.w),
                   child: Column(
                     children: [
-                      Image.asset('assets/icons/rec.png',
+                      Image.asset('assets/icons/recs.png',
                           height: 8.w, width: 8.w, color: Colors.black),
                       const Text(
                         'Commandes',

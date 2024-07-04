@@ -8,8 +8,6 @@ import 'package:le_bolide/src/features/Pages/Search/Pages/modal_page.dart';
 import 'package:le_bolide/src/features/Pages/Search/widgets/search1.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../commande/reservation_terrain/widgets/choix.dart';
-
 class FindSearchPlusPage extends StatefulWidget {
   const FindSearchPlusPage({Key? key}) : super(key: key);
 
