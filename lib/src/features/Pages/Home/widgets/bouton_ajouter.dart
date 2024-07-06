@@ -41,7 +41,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 27.w,
+        width: 30.w,
         height: 4.2.h,
         child: !_showQuantityControls
             ? SizedBox(

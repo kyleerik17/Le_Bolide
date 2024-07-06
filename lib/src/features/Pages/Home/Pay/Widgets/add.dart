@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout1_page.dart';
+import 'package:le_bolide/src/features/Pages/commande/pages/details-produit_page.dart';
 import 'package:sizer/sizer.dart';
 
 class AddPage extends StatefulWidget {
@@ -44,7 +45,8 @@ class _AddPageState extends State<AddPage> {
     Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => Pay1Page(),
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            DetailsProduitsPage(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
@@ -67,7 +69,7 @@ class _AddPageState extends State<AddPage> {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 35.w,
+        width: 30.w,
         height: 4.2.h,
         child: !_showQuantityControls
             ? SizedBox(
@@ -99,28 +101,48 @@ class _AddPageState extends State<AddPage> {
                   borderRadius: BorderRadius.circular(1.5.w),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(
+                      width: 1.w,
+                    ),
                     IconButton(
                       onPressed: _decrementQuantity,
                       icon: const Icon(Icons.remove),
                       padding: EdgeInsets.zero,
+                      constraints: BoxConstraints(),
                     ),
-                    const VerticalDivider(
+                    VerticalDivider(
                       color: Colors.grey,
                       thickness: 1,
+                      width: 2.w,
+                    ),
+                    SizedBox(
+                      width: 2.w,
                     ),
                     Text(
                       '$_quantity',
                       style: TextStyle(fontSize: 14.sp),
                     ),
-                    const VerticalDivider(
+                    SizedBox(
+                      width: 2.w,
+                    ),
+                    VerticalDivider(
                       color: Colors.grey,
                       thickness: 1,
+                      width: 1.w,
+                    ),
+                    SizedBox(
+                      width: 1.w,
                     ),
                     IconButton(
                       onPressed: _incrementQuantity,
                       icon: const Icon(Icons.add),
                       padding: EdgeInsets.zero,
+                      constraints: BoxConstraints(),
+                    ),
+                    SizedBox(
+                      width: 1.w,
                     ),
                   ],
                 ),

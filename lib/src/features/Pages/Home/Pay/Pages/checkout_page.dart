@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Pages/checkout1_page.dart';
+import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/add.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/horizon_container.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/home_page.dart';
+import 'package:le_bolide/src/features/Pages/Home/widgets/bouton_ajouter.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../commande/pages/details-produit_page.dart';
@@ -74,10 +76,26 @@ class _PayPageState extends State<PayPage> {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const HomePage(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  const begin = Offset(-1.0, 0.0);
+                  const end = Offset.zero;
+                  const curve = Curves.ease;
+
+                  final tween = Tween(begin: begin, end: end)
+                      .chain(CurveTween(curve: curve));
+                  final offsetAnimation = animation.drive(tween);
+
+                  return SlideTransition(
+                    position: offsetAnimation,
+                    child: child,
+                  );
+                },
               ),
             );
           },
@@ -103,6 +121,7 @@ class _PayPageState extends State<PayPage> {
       body: Container(
         color: const Color(0xFFF7F8F9),
         padding: EdgeInsets.all(2.w),
+        margin: EdgeInsets.all(2.w),
         child: ListView(
           children: [
             Padding(
@@ -126,9 +145,19 @@ class _PayPageState extends State<PayPage> {
                 color: Colors.white,
               ),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/pn2.png',
-                      width: 25.w, height: 25.w),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/pn.png',
+                        width: 25.w,
+                        height: 25.w,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
+                  ),
                   SizedBox(width: 2.w),
                   Expanded(
                     child: Column(
@@ -138,13 +167,22 @@ class _PayPageState extends State<PayPage> {
                           children: [
                             Expanded(
                               child: Text(
-                                'Radar Rivera PRO 2 165/65 R13 77T',
-                                style: TextStyle(fontSize: 13.sp),
+                                'Radar Rivera PRO 2 165/65\n R13 77T',
+                                style: TextStyle(
+                                  fontSize: 13.sp,
+                                  fontFamily: 'Cabin',
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
+                            Column(children: [
+                              Image.asset(
+                                'assets/icons/trash.png',
+                              ),
+                            ]),
                           ],
                         ),
-                        SizedBox(height: 1.h),
+                        SizedBox(height: 0.5.h),
                         Row(
                           children: [
                             Image.asset(
@@ -157,106 +195,35 @@ class _PayPageState extends State<PayPage> {
                               'Pneu été',
                               style: TextStyle(
                                 fontFamily: "Cabin",
-                                fontSize: 12.sp,
                                 color: const Color(0xFF1A1A1A),
+                                fontSize: 13.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 0.5.h),
-                        Text(
-                          '38 000 F',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            color: const Color(0xFF1A1A1A),
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '38 000 F',
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontFamily: 'Cabin',
+                                fontWeight: FontWeight.w400,
+                                color: const Color(0xFF1A1A1A),
+                              ),
+                            ),
+                            SizedBox(width: 12.w),
+                            const AddPage()
+                          ],
                         ),
                       ],
                     ),
                   ),
-                  Column(
-                    children: [
-                      Column(children: [
-                        SizedBox(height: 1.h),
-                        Image.asset(
-                          'assets/icons/trash.png',
-                        ),
-                      ]),
-                      SizedBox(height: 5.h),
-                      SizedBox(
-                        width: 25.w,
-                        height: 4.2.h,
-                        child: _showQuantityControls
-                            ? const SizedBox(
-                                // child: TextButton(
-                                //   onPressed: _toggleQuantityControls,
-                                //   style: TextButton.styleFrom(
-                                //     backgroundColor: const Color(0xFF1A1A1A),
-                                //     padding:
-                                //         EdgeInsets.symmetric(vertical: 0.8.h),
-                                //     shape: RoundedRectangleBorder(
-                                //       borderRadius:
-                                //           BorderRadius.circular(1.5.w),
-                                //     ),
-                                //   ),
-                                //   child: Text(
-                                //     "Ajouter",
-                                //     style: TextStyle(
-                                //       color: Colors.white,
-                                //       fontSize: 14.sp,
-                                //       fontWeight: FontWeight.w400,
-                                //       fontFamily: 'Cabin',
-                                //     ),
-                                //   ),
-                                // ),
-                                )
-                            : Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 0.5.h, horizontal: 1.w),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(color: Colors.black),
-                                  borderRadius: BorderRadius.circular(1.5.w),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconButton(
-                                      onPressed: _decrementQuantity,
-                                      icon: const Icon(Icons.remove),
-                                      padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(),
-                                    ),
-                                    const VerticalDivider(
-                                      color: Colors.grey,
-                                      thickness: 1,
-                                    ),
-                                    Text(
-                                      '$_quantity',
-                                      style: TextStyle(fontSize: 14.sp),
-                                    ),
-                                    const VerticalDivider(
-                                      color: Colors.grey,
-                                      thickness: 1,
-                                    ),
-                                    IconButton(
-                                      onPressed: _incrementQuantity,
-                                      icon: const Icon(Icons.add),
-                                      padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),
-            SizedBox(height: 2.h),
+            SizedBox(height: 1.h),
             Container(
               padding: EdgeInsets.all(2.w),
               decoration: BoxDecoration(
@@ -271,27 +238,30 @@ class _PayPageState extends State<PayPage> {
                     children: [
                       Image.asset(
                         'assets/images/fr.jpeg',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
+                        width: 25.w,
+                        height: 25.w,
+                        fit: BoxFit.contain,
                       ),
                       Positioned(
                         bottom: 25,
                         child: TextButton(
                           onPressed: () {},
                           style: TextButton.styleFrom(
-                            backgroundColor: Colors.red,
+                            backgroundColor: const Color(0xFFEB4143),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(4.w),
                             ),
                             padding: EdgeInsets.symmetric(
-                                horizontal: 4.w, vertical: 0.5.h),
+                                horizontal: 3.w, vertical: 0.8.h),
                             minimumSize: const Size(1, 1),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Hors Stock',
-                            style:
-                                TextStyle(fontSize: 10.sp, color: Colors.white),
+                            style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.white,
+                                fontFamily: 'Inter Medium',
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                       ),
@@ -315,7 +285,6 @@ class _PayPageState extends State<PayPage> {
                               ),
                             ),
                             Column(children: [
-                              SizedBox(height: 1.h),
                               Image.asset(
                                 'assets/icons/trash.png',
                               ),
@@ -336,7 +305,7 @@ class _PayPageState extends State<PayPage> {
                               style: TextStyle(
                                 fontFamily: "Cabin",
                                 color: const Color(0xFF1A1A1A),
-                                fontSize: 12.sp,
+                                fontSize: 13.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -345,28 +314,33 @@ class _PayPageState extends State<PayPage> {
                         Row(
                           children: [
                             Text(
-                              '38 000 F',
+                              '69 000 F',
                               style: TextStyle(
                                 fontSize: 12.sp,
+                                fontFamily: 'Cabin',
+                                fontWeight: FontWeight.w400,
                                 color: const Color(0xFF1A1A1A),
                               ),
                             ),
-                            SizedBox(width: 25.w),
+                            SizedBox(width: 14.w),
                             TextButton(
                               onPressed: () {},
                               style: TextButton.styleFrom(
-                                backgroundColor: Colors.red,
+                                backgroundColor: const Color(0xFFEB4143),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(4.w),
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 4.w, vertical: 0.5.h),
+                                    horizontal: 5.w, vertical: 0.8.h),
                                 minimumSize: const Size(1, 1),
                               ),
                               child: Text(
                                 'Hors Stock',
                                 style: TextStyle(
-                                    fontSize: 10.sp, color: Colors.white),
+                                    fontSize: 12.sp,
+                                    color: Colors.white,
+                                    fontFamily: 'Inter Medium',
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
                           ],
@@ -377,6 +351,7 @@ class _PayPageState extends State<PayPage> {
                 ],
               ),
             ),
+            SizedBox(height: 1.h),
             Padding(
               padding: EdgeInsets.all(2.w),
               child: const Text(

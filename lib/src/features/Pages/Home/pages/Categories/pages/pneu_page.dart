@@ -3,6 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article2.dart';
 import 'package:le_bolide/src/features/Pages/Home/Pay/Widgets/article3.dart';
 import 'package:le_bolide/src/features/Pages/Home/pages/Categories/pages/categorie_page.dart';
+import 'package:le_bolide/src/features/Pages/Home/pages/Categories/widgets/search_pneu.dart';
+import 'package:le_bolide/src/features/Pages/Home/pages/home_page.dart';
+import 'package:le_bolide/src/features/Pages/Search/Pages/search_page.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../widgets/search.dart';
@@ -34,6 +37,25 @@ class _PneuPageState extends State<PneuPage> {
               onTap: () {
                 Navigator.pop(
                   context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        const HomePage(),
+                    transitionsBuilder:
+                        (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(-1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.ease;
+
+                      final tween = Tween(begin: begin, end: end)
+                          .chain(CurveTween(curve: curve));
+                      final offsetAnimation = animation.drive(tween);
+
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                  ),
                 );
               },
               child: Image.asset(
@@ -61,7 +83,8 @@ class _PneuPageState extends State<PneuPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 2.h),
+                SearchPneu(),
+                SizedBox(height: 1.h),
                 Row(
                   children: [
                     TextButton(

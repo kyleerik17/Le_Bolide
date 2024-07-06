@@ -91,37 +91,58 @@ class RegistrationLastPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 1.5.h),
-                      InputText(
-                        hintText: "+221 78 444 56 78",
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.all(0.w),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(width: 1.5.h),
-                              Image.asset(
-                                'assets/icons/sng.png',
-                                width: 5.w,
-                              ),
-                              SizedBox(width: 2.w),
-                            ],
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(0.5),
                           ),
+                          borderRadius: BorderRadius.circular(
+                              8.0), // Ajoute un rayon de bordure si nécessaire
                         ),
-                        suffixIcon: Padding(
-                          padding: const EdgeInsets.all(0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(width: 1.5.h),
-                              Image.asset(
-                                'assets/icons/check.png',
-                                width: 5.w,
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(0.w),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(width: 1.5.h),
+                                  Image.asset(
+                                    'assets/icons/sng.png',
+                                    width: 5.w,
+                                    height: 5.w,
+                                  ),
+                                  SizedBox(width: 2.w),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            Expanded(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "+221 78 444 56 78",
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 3.w,
+                                  ),
+                                ),
+                                textCapitalization: TextCapitalization.words,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Image.asset(
+                                    'assets/icons/check.png',
+                                    width: 5.w,
+                                    height: 5.w,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        capitalization: TextCapitalization.words,
-                        prefixText: const Text(''),
                       ),
                       SizedBox(height: 1.h),
                       InputText(

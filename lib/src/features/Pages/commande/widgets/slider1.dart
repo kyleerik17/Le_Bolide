@@ -151,47 +151,6 @@ class SlideItem extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-          bottom: 10,
-          left: 50,
-          right: 20,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'NOUVEAU !',
-                style: TextStyle(
-                  color: Color(0xFFFFBC39),
-                  fontSize: 14.sp,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              Text.rich(
-                TextSpan(
-                  text: "PIÈCES DE RECHANGE\nET ACCESSOIRES \n",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: "Poppins",
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: "POUR VOITURES ÉLECTRIQUES",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Poppins",
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
       ],
     );
   }

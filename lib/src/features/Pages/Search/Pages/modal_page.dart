@@ -53,7 +53,7 @@ class ModalPage extends StatelessWidget {
                             shape: BoxShape.circle,
                             color: Color(0xFFEBEBEB),
                           ),
-                          padding: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(3),
                           child: Image.asset(
                             'assets/icons/close.png',
                             width: 12.w,
@@ -92,52 +92,56 @@ class ModalPage extends StatelessWidget {
                   options: ['Toutes saisons', 'Pneus été', 'Pneus hiver'],
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  'Dimensions',
-                  style: TextStyle(
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Poppins',
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DimensionInput(label: 'Largeur', options: ['205']),
-                      DimensionInput(label: 'Hauteur', options: ['55']),
-                      DimensionInput(label: 'Diamètre', options: ['55']),
+                      Text(
+                        'Dimensions',
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Poppins',
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    DimensionInput(label: 'Largeur', options: ['205']),
+                    DimensionInput(label: 'Hauteur', options: ['55']),
+                    DimensionInput(label: 'Diamètre', options: ['55']),
+                  ],
+                ),
+                SizedBox(height: 4.w),
                 Center(
-              child: TextButton(
-                onPressed: () {
-                 
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xFF1A1A1A),
-                  padding:
-                      EdgeInsets.symmetric(vertical: 1.0.h, horizontal: 20.w),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(1.w),
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color(0xFF1A1A1A),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 4.w, horizontal: 39.w),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2.w),
+                      ),
+                    ),
+                    child: Text(
+                      "Valider",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Cabin',
+                      ),
+                    ),
                   ),
                 ),
-                child: Text(
-                  "Valider",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Cabin',
-                  ),
-                ),
-              ),
-            ),
               ],
             ),
           ),
@@ -156,13 +160,8 @@ class FilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      margin: const EdgeInsets.only(bottom: 16),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(width: 1, color: Colors.grey),
-        ),
-      ),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 2.w),
+      decoration: const BoxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -175,7 +174,7 @@ class FilterSection extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 2.w),
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -183,7 +182,7 @@ class FilterSection extends StatelessWidget {
                 .map((option) => FilterChip(
                       label: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
+                            horizontal: 4, vertical: 4),
                         child: Text(
                           option,
                           style: TextStyle(
@@ -220,21 +219,24 @@ class DimensionInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
-        SizedBox(height: 8),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 12.sp,
+            color: Colors.black,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        SizedBox(height: 2.w),
         Container(
-          width: 106,
+          width: 25.w,
           height: 40,
-          padding: EdgeInsets.symmetric(horizontal: 12),
+          padding: EdgeInsets.symmetric(horizontal: 9),
           decoration: BoxDecoration(
             border: Border.all(color: Color(0xFFC9CDD2), width: 1),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(4),
-              topRight: Radius.circular(0),
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0),
-            ),
           ),
           child: DropdownButton<String>(
             value: options[0],
@@ -245,8 +247,7 @@ class DimensionInput extends StatelessWidget {
                 child: Text(value),
               );
             }).toList(),
-            underline: SizedBox(), // To remove the default underline
-            isExpanded: true, // To make the dropdown fill the container width
+            isExpanded: true,
           ),
         ),
       ],

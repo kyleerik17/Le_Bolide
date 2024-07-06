@@ -74,7 +74,7 @@ class _Modal2PageState extends State<Modal2Page> {
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF1A1A1A),
                   padding:
-                      EdgeInsets.symmetric(vertical: 1.0.h, horizontal: 20.w),
+                      EdgeInsets.symmetric(vertical: 1.0.h, horizontal: 40.w),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(1.w),
                   ),
